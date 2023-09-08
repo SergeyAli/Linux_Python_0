@@ -20,7 +20,7 @@ def script_1():
     print(result.stdout)
     print(result.returncode)
     print(result.stderr)
-    if ("jammy" in result.stdout  and "22.04.1" in result.stdout  and result.returncode == 0):
+    if ("jammy" in result.stdout  and "22.04.3" in result.stdout  and result.returncode == 0):
         print("SUCCESS")
     else:
         print("FAIL")
