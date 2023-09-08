@@ -7,7 +7,6 @@
 import subprocess
 from typing import List
 
-
 def text_checking(command: List[str], text: str) -> bool:
     result_command: str = (subprocess.run(command, stdout=subprocess.PIPE,
                                           text=True, shell=True, encoding='utf-8')).stdout
