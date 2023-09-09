@@ -66,6 +66,6 @@ def test_step8():
     assert checkout_positive(f"cd {foder_out}; 7z l arx2.7z", "2 files")
 
 def test_step9():
-    # test2 команда разархивирования с путями (x).
+    # test9 команда разархивирования с путями (x).
     assert checkout_positive(f"cd {foder_out}; 7z x arx2.7z -o{foder_ext} -y", "Everything is Ok"), \
         "test9 FAIL"
