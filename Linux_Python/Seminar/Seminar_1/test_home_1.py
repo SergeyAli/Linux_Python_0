@@ -16,7 +16,7 @@ def text_checking(command: List[str], text: str) -> bool:
 
 if __name__ == '__main__':
     #command_list: List[str] = ["cat /etc/os-release"]
-    command_list: List[str] = ["cat test_1.py"]
+    command_list: List[str] = ["cat test_2.py"]
     # text_search: str = 'https://help.ubuntu.com/'
     text_search: str = '22.04.3'
     text_was_found: bool = text_checking(command_list, text_search)
