@@ -8,13 +8,13 @@ from checkout import checkout_negative
 
 foder_in = "/home/user/tst"
 foder_out = "/home/user/out"
-foder_ext = "/home/user/folder2"
+foder_ext = "/home/user/folder1"
+foder_ext_bad = "/home/user/folder2"
 
 def test_step1():
-     #test1 проверяет, что команда архивации содержит текст «Everything is OK» и завершается с кодом 0.
-    assert checkout_negative(f"cd {foder_in}; 7z a {foder_out}/arx2", "Everything is Ok"), "test1 FAIL"
+     #test1 негативный тест работы архиватора с командой распаковки (e).
+    assert checkout_negative(f"cd {foder_ext_bad}; 7z e arx2.7z -o{foder_ext} -y", "ERRORS"), "test1 FAIL"
 
 def test_step2():
-    # test2 проверяет, что команда разархивации содержит текст «Everything is OK» и завершается с кодом 0.
-    assert checkout_negative(f"cd {foder_out}; 7z e arx2.7z -o{foder_ext} -y", "Everything is Ok"), \
-        "test2 FAIL"
+    # test2 негативный тест работы архиватора с командой проверки (t) поврежденного архива.
+    assert checkout_negative(f"cd {foder_ext_bad}; 7z t arx2.7z", "ERRORS"), "test2 FAIL"
