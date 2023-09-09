@@ -1,5 +1,11 @@
 from checkout import checkout_positive
 
+
+foder_in = "/home/user/tst"
+foder_out = "/home/user/out"
+foder_ext = "/home/user/folder1"
+
+
 def test_step1():
      #test1 проверяет, что команда архивации содержит текст «Everything is OK» и завершается с кодом 0.
     assert checkout_positive("cd /home/user/tst; 7z a /home/user/out/arx2", "Everything is Ok"), "test1 FAIL"
