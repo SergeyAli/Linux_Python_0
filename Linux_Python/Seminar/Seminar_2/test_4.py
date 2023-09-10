@@ -69,3 +69,7 @@ def test_step9():
     # test9 команда разархивирования с путями (x).
     assert checkout_positive(f"cd {foder_out}; 7z x arx2.7z -o{foder_ext} -y", "Everything is Ok"), \
         "test9 FAIL"
+
+def test_step10():
+    # test10 тест команды расчета хеша (h). Проверить, что хеш совпадает с рассчитанным командой crc32.
+    assert checkout_positive(f"cd {foder_out}; 7z h arx2.7z", "6E3F7F25")
