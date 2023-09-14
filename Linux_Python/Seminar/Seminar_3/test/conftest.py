@@ -60,3 +60,20 @@ def speed():
     print(datetime.now().strftime('%H:%M:%S.%f'))
     yield
     print(datetime.now().strftime('%H:%M:%S.%f'))
+
+
+"""
+Задание 1.
+Условие:
+Дополнить проект фикстурой, которая после каждого шага теста дописывает в заранее созданный файл stat.txt строку вида:
+время, кол-во файлов из конфига, размер файла из конфига, статистика загрузки процессора из файла /proc/loadavg 
+(можно писать просто всё содержимое этого файла).
+"""
+@pytest.fixture()
+def home_task1():
+    yield "home_task1"
+    checkout("cat /proc/loadavg >> {}/{}".format(data["folder_home"], "stat.txt"), "")
+    checkout("echo {}>> {}/{}".format(datetime.now().strftime("%H:%M:%S.%f"), data["folder_home"], "stat.txt"),
+                      "")
+    checkout("echo {} >> {}/{}".format(str(data["count"]), data["folder_home"], "stat.txt"), "")
+    checkout("echo  {} >> {}/{}".format(data["bs"], data["folder_home"], "stat.txt"), "")
