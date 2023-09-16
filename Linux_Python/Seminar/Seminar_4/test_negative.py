@@ -8,13 +8,13 @@ with open('config.yaml') as f:
 
 def test_step1(clear_folders, make_files, make_badarx):
     # test1
-    assert ssh_checkout_negative(data["host"], data["user"], "12345",
+    assert ssh_checkout_negative(data["host"], data["user"], data["passwd"],
                                  "cd {}; 7z e badarx.7z -o{} -y".format(data["folder_out"], data["folder_ext"]),
                                  "ERROR"), "Test4 Fail"
 
 
 def test_step2():
     # test2
-    assert ssh_checkout_negative(data["host"], data["user"], "12345",
+    assert ssh_checkout_negative(data["host"], data["user"], data["passwd"],
                                  "cd {}; 7z t badarx.7z".format(data["folder_out"]),
                                  "ERROR"), "Test5 Fail"
